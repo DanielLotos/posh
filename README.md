@@ -1,3 +1,3 @@
-# Repository for Marketplace
+# POSH - test page with grid
 
-Настройка гита2
+В будущем здесь будет краткая информация о репозитории.
