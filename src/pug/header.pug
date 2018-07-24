@@ -1,6 +1,6 @@
 header.main-header
-  .main-header__top
-    .container.main-header__container
+  .container.main-header__container
+    .main-header__top
       .contacts
         a.contacts__link(href="tel:+84906582725") +84 90 658 2728
         address.contacts__address 27 Ba Trieu St, Vietnam
@@ -10,8 +10,7 @@ header.main-header
         a.socials__link(href="#") YT
         a.socials__link(href="#") IN
         a.socials__link(href="#") HZ
-  .main-header__bottom
-    .container.main-header__container
+    .main-header__bottom
       a.logo.main-header__logo(href="#")
         img.logo__img(src=require("../img/logo.png"), alt="Logo")
       nav.site-nav.main-header__nav
@@ -22,8 +21,7 @@ header.main-header
         a.site-nav__link(href="#") blog
         a.site-nav__link(href="#") team
         a.site-nav__link(href="#") contact
-  .main-header__content
-    .container.main-header__container
+    .main-header__content
       h1.main-header__title
         | it's
         span.main-header__title--color fun
@@ -31,6 +29,7 @@ header.main-header
       p.main-header__subtitle
         | have you ever wondered if what you know
         | about herbal breast englargements is accurate?
-      a.btn.main-header__btn(href="#") about us
-      a.btn.main-header__btn.main-header__btn--color(href="#") > watch video
+      .main-header__btn-wrapper
+        button.button.main-header__btn(type="button") about us
+        button.button.button--color.main-header__btn(type="button") > watch video
 

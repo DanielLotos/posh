@@ -1,16 +1,39 @@
 @import "./global";
+@import "./variables";
 
 body {
   padding: 0;
   margin: 0;
+  background: tomato;
 }
 
-.main-header {
-  &__title {
-    font-size: 64px;
+.container {
+  max-width: calc(1200px - 48px);
+  padding: 0 24px;
+}
+
+.button {
+  display: inline-block;
+  min-width: 180px;
+  min-height: 48px;
+  border: 1px solid white;
+  background: none;
+  transition: background .2s;
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
   }
-  &__subtitle {
-    font-size: 16px;
+  &--black {
+    border: 1px solid $btn-black;
+    &:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+  &--color {
+    background: $orange;
+    border: none;
+    &:hover {
+      background: lighten($orange, 5%);
+    }
   }
 }
 
@@ -29,3 +52,5 @@ body {
 .services {
   list-style: none;
 }
+
+@import "./header";
