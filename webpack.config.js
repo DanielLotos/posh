@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-const $ = require('jquery');
+// const $ = require('jquery');
 
 const SvgStore = require('webpack-svgstore-plugin');
 
@@ -21,7 +21,9 @@ module.exports = {
 
   // Настройка devServer
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    hot: true,
+    inline: true
   },
 
   // Модули и правила для обработки файлов
@@ -68,10 +70,11 @@ module.exports = {
 
       // Правило для файлов изображений
       {
-        test: /\.(png|jpg|jpeg|gif)$/,
+        test: /\.(png|jpg|jpeg)$/,
         loader: 'file-loader',
         options: {
-          name: './css/img/[name].[ext]'
+          name: '[name].[ext]',
+          outputPath: 'img/'
         }
       },
 
@@ -88,20 +91,24 @@ module.exports = {
 
   // Настройка плагинов
   plugins: [
+    // Подключаем jQuery
+    // new webpack.ProvidePlugin({
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    //   'window.jQuery': 'jquery'
+    // }),
+
     // Очистка директории выхода
     new CleanWebpackPlugin(['dist']),
-    // Подключаем jQuery
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
-    }),
+
     // Экспорт стилей
     new ExtractTextPlugin({filename: './style.css'}),
+
     // Настройка обработчика HTML
     new HtmlWebpackPlugin({
       template: './src/index.pug'
     }),
+
     // Сборка спрайта
     new SpriteLoaderPlugin({
       plainSprite: true,

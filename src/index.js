@@ -9,3 +9,5 @@ import './scss/style.scss';
 
 // Подключаем скрипт для проверки подключения скриптов
 import './js/script1.js';
+
+// import './logo.png';
